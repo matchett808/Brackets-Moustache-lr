@@ -4,23 +4,33 @@
 define(function (require, exports, module) {
     "use strict";
     var AppInit = brackets.getModule("utils/AppInit");
-    var CommandManager = brackets.getModule("command/CommandManager");
-    var Menus          = brackets.getModule("command/Menus");
+    //var CommandManager = brackets.getModule("command/CommandManager");
+    //var Menus          = brackets.getModule("command/Menus");
     //var EditorManager  = brackets.getModule("editor/EditorManager");
     //var ProjectManager = brackets.getModule("project/ProjectManager");
     //var FileUtils = brackets.getModule("file/FileUtils");    
-    var DocumentManager = brackets.getModule("document/DocumentManager");    
     //var NativeApp = brackets.getModule("utils/NativeApp");
     //var Commands = brackets.getModule("command/Commands");
-         function _onDocumentSaved(event, doc) {
-            alert("magic");
+         function onDocumentSaved(event, doc) {
+      var DocumentManager = brackets.getModule("document/DocumentManager");    
+             
+             var fname = DocumentManager.getCurrentDocument().file._name;
+             // if current file == *.moustache
+             if(fname.match('.*?\.moustache'))
+             {
+                 //if current folder contains project.json && project.context
+                    // read project.json
+                    // if project.json => compile == true
+                        // set output file based on project.json
+                        // read project.context
+                        // pass project.context & currentfile -> moustache...
+             }
         }
-
     AppInit.appReady(function () {
+      var DocumentManager = brackets.getModule("document/DocumentManager");    
+        $(DocumentManager).on('documentSaved', onDocumentSaved);
     });
 });
 
 
 
-
-  
