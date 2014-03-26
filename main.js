@@ -8,7 +8,7 @@ define(function (require, exports, module) {
     //var Menus          = brackets.getModule("command/Menus");
     //var EditorManager  = brackets.getModule("editor/EditorManager");
     //var ProjectManager = brackets.getModule("project/ProjectManager");
-    //var FileUtils = brackets.getModule("file/FileUtils");    
+    var FileUtils = brackets.getModule("file/FileUtils");    
     //var NativeApp = brackets.getModule("utils/NativeApp");
     //var Commands = brackets.getModule("command/Commands");
          function onDocumentSaved(event, doc) {
@@ -18,6 +18,11 @@ define(function (require, exports, module) {
              // if current file == *.moustache
              if(fname.match('.*?\.moustache'))
              {
+                 //find current path
+                 var pname = DocumentManager.getCurrentDocument().file._path;
+                 var file = FileUtils.getDirectoryPath(pname) + "project.json";
+                 if (_openDocuments[file.fullPath]) {
+                 }
                  //if current folder contains project.json && project.context
                     // read project.json
                     // if project.json => compile == true
