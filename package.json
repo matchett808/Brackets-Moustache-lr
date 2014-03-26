@@ -1,0 +1,12 @@
+{
+    "name": "moustache-lr",
+    "title": "moustache-lr",
+    "description": "add",
+    "homepage": "",
+    "version": "0.0.1",
+    "author": "Iain Matchett",
+    "license": "Do as you wish :)",
+    "engines": {
+        "brackets": ">=0.36.0"
+    }
+}
